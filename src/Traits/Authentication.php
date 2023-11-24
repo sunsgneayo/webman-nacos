@@ -43,7 +43,7 @@ trait Authentication
             $this->mseAuth($options);
             return;
         }
-        if (!$this->isExpired()) {
+        if (!$this->isExpired() and $this->accessToken) {
             $options[RequestOptions::QUERY]['accessToken'] = $this->accessToken;
             return;
         }
